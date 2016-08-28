@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@android:color/black"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:orientation="vertical">
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="#A4A4A4"-->
+            <!--android:text="Name"-->
+            <!--android:textSize="40dp"/>-->
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#222222"
+            android:layout_marginTop="7dp"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:lines="1"
+            android:maxLength="50"
+            android:textSize="25dp"
+            android:textColor="#f7f7f7"
+            android:textColorHint="#656565"
+            android:hint="Name"
+            android:id="@+id/et_name" />
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="#A4A4A4"-->
+            <!--android:layout_marginTop="17dp"-->
+            <!--android:text="Contact"-->
+            <!--android:textSize="20dp"/>-->
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#222222"
+            android:layout_marginTop="17dp"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:textSize="25dp"
+            android:lines="1"
+            android:maxLength="15"
+            android:textColor="#f7f7f7"
+            android:textColorHint="#656565"
+            android:hint="Contact"
+            android:id="@+id/et_contact" />
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="17dp"-->
+            <!--android:textColor="#A4A4A4"-->
+            <!--android:text="City"-->
+            <!--android:textSize="20dp"/>-->
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#222222"
+            android:layout_marginTop="17dp"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:textSize="25dp"
+            android:lines="1"
+            android:maxLength="100"
+            android:textColor="#f7f7f7"
+            android:textColorHint="#656565"
+            android:hint="City"
+            android:id="@+id/et_city" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="#222222"
+            android:gravity="start|top"
+            android:layout_marginTop="17dp"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="2dp"
+            android:textSize="25dp"
+            android:textColor="#f7f7f7"
+            android:textColorHint="#656565"
+            android:hint="Comment"
+            android:id="@+id/et_comment" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:text="SHARE"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimaryDark"
+            android:id="@+id/btn_share" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText txtName, txtContact, txtCity, txtComment;
@@ -44,10 +46,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             case R.id.action_attach:
 
-                //Pick new file using intent.
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("file/*");
-                startActivityForResult(intent, 1);
+                //Pick multiple images from gallery.
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent,"Select Picture"), 1);
 
                 break;
         }
@@ -68,8 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case 1:
                 if(resultCode==RESULT_OK)
                 {
-                    String FilePath = data.getData().getPath();
-                    Toast.makeText(MainActivity.this, FilePath, Toast.LENGTH_SHORT).show();
+                    String imagesPath = data.getStringExtra("data");
+                    Toast.makeText(getApplicationContext(), imagesPath, Toast.LENGTH_LONG).show();
+
                 }
                 break;
 

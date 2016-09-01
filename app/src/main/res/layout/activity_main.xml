@@ -20,7 +20,7 @@
             android:paddingRight="20dp"
             android:paddingBottom="30dp"
             android:background="#d3000000"
-
+            android:id="@+id/linearlayout"
             android:orientation="vertical">
 
             <!--<TextView-->

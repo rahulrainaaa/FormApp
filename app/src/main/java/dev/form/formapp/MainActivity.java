@@ -1,11 +1,8 @@
 package dev.form.formapp;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,10 +13,12 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText txtName, txtContact, txtCity, txtComment;
-    Button btnShare;
+    Button btnShare, btnAdd;
+    ArrayList<String> list = new ArrayList<String>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         txtName = (EditText)findViewById(R.id.et_name);
@@ -27,24 +26,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtCity = (EditText)findViewById(R.id.et_city);
         txtComment = (EditText)findViewById(R.id.et_comment);
         btnShare = (Button)findViewById(R.id.btn_share);
+        btnAdd = (Button)findViewById(R.id.btn_add_img);
         btnShare.setOnClickListener(this);
+        btnAdd.setOnClickListener(this);
 
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
+    public void onClick(View view)
     {
-        getMenuInflater().inflate(R.menu.menu_form, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
+        int id = view.getId();
         switch(id)
         {
-            case R.id.action_attach:
+            case R.id.btn_add_img:
 
                 //Pick multiple images from gallery.
                 Intent intent = new Intent();
@@ -54,15 +48,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(Intent.createChooser(intent,"Select Picture"), 1);
 
                 break;
+
+            case R.id.btn_share:
+
+                //Share Image via Email.
+
+
+                break;
         }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onClick(View v)
-    {
-
     }
 
     @Override
@@ -72,9 +65,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case 1:
                 if(resultCode==RESULT_OK)
                 {
-                    String imagesPath = data.getStringExtra("data");
-                    Toast.makeText(getApplicationContext(), imagesPath, Toast.LENGTH_LONG).show();
-
+                    String imagePath = data.getStringExtra("data");
+                    Toast.makeText(getApplicationContext(), imagePath, Toast.LENGTH_LONG).show();
+                    list.add("" + imagePath);
                 }
                 break;
 

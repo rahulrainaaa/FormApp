@@ -89,12 +89,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btn_share:
 
+                String name = txtName.getText().toString().trim();
+                String contact = txtContact.getText().toString().trim();
+                String city = txtCity.getText().toString().trim();
+                String comment = txtComment.getText().toString().trim();
+                String msgBody = comment + "\n\n" + name + "\n" + city + "\n" + contact + "";
+
                 //Share Image via Email.
                 Toast.makeText(getApplicationContext(), "Attachments: " + list.size(), Toast.LENGTH_SHORT).show();
                 final Intent ei = new Intent(Intent.ACTION_SEND_MULTIPLE);
                 ei.setType("plain/text");
                 ei.putExtra(Intent.EXTRA_EMAIL, new String[] {"" + Constants.EMAIL});
                 ei.putExtra(Intent.EXTRA_SUBJECT, Constants.SUBJECT);
+                ei.putExtra(Intent.EXTRA_TEXT, msgBody.toString());
                 ArrayList<Uri> sendDoc = new ArrayList<Uri>();  //Attachments Array
                 Iterator<String> iterator = list.iterator();
                 String dataVal = "";
@@ -124,10 +131,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 {
                     Uri selectedImageUri = data.getData();
                     String imagePath = getPath(selectedImageUri);
-                    Toast.makeText(getApplicationContext(), imagePath, Toast.LENGTH_LONG).show();
                     list.add("" + imagePath);
+                    Toast.makeText(getApplicationContext(), "Attached files: " + list.size(), Toast.LENGTH_SHORT).show();
                 }
-
                 break;
         }
     }

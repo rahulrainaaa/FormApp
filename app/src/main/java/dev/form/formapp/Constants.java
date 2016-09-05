@@ -6,6 +6,6 @@ package dev.form.formapp;
  */
 public class Constants {
 
-    public static String EMAIL = "email@gmail.com";
+    public static String EMAIL = "customfurnito@gmail.com";
     public static String SUBJECT = "Email Title";
 }
